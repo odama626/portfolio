@@ -1,0 +1,28 @@
+$height: 32px;
+
+.container {
+	height: $height;
+	background-color: rgba(0,0,0,.25);
+	position: relative;
+
+	.bar {
+		display: inline-block;
+		height: 100%;
+		line-height: $height;
+	}
+
+	.text {
+		color: $color_text;
+		display: inline-block;
+		// position: absolute;
+		// top: 0;
+		// bottom: 0;
+		// right: 0;
+		// margin: auto;
+		line-height: $height;
+		padding-left: $padding/2;
+		font-weight: 400;
+		font-size: 14px;
+		vertical-align: top;
+	}
+}

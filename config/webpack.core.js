@@ -25,7 +25,7 @@ module.exports = {
             "typed-css-modules-loader", {
               loader: "sass-loader",
               options: {
-                includePaths: [path.resolve(__dirname, "scss")],
+                includePaths: [path.resolve(__dirname, "../assets/scss")],
                 data: "@import 'vars.scss';"
               }
             }

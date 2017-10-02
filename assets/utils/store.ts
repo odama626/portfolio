@@ -3,11 +3,12 @@ import { routerMiddleware } from 'react-router-redux';
 import createBrowserHistory from 'history/createBrowserHistory';
 import createMemoryHistory from 'history/createMemoryHistory';
 import reducer from './rootReducer';
+import wares from './middleware';
 
 export default (preloadedState = {}) => {
 	const history = ENV.BUILD_TARGET === 'client' ? createBrowserHistory() : createMemoryHistory();
-
 	let middleware: any = [
+		...wares,
 		routerMiddleware(history)
 	]
 

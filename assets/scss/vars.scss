@@ -1,0 +1,34 @@
+$color_navbar_background: #3A3A91;
+$color_background: #161616;
+$color_navbar_text_active: #0B7C9C;
+$color_navbar_text_default: #917B3A;
+$color_navbar_beard: #161616;
+$color_navbar_skin: #DDB9A6;
+
+$color_text: #FEFEFE;
+
+
+$padding: 10px;
+$max_content_width: 930px;
+
+$color_text_default: white;
+
+$font_size_navbar: 18px;
+
+
+
+@mixin delinkify($color: $color_text_default) {
+	&, &:hover, &:active, &:visited {
+		color: $color;
+		text-decoration: none;
+	}
+}
+
+@mixin contentContainer {
+	max-width: $max_content_width;
+	left: 0;
+	right: 0;
+	margin: auto;
+	padding: 0 50px;
+	background-color: $color_background;
+}

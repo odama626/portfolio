@@ -1,0 +1,55 @@
+$navlink_border: 2px;
+
+.container {
+	z-index: 5;
+	left: 0;
+	right: 0;
+	background-color: $color_navbar_background;
+	padding: $navlink_border $padding/2;
+
+	.innerContainer {
+		@include contentContainer;
+		background-color: $color_navbar_background;
+		min-height: 22px;
+		position: relative;
+		text-align: right;
+	}
+
+	.heroContainer {
+		height: 200px;
+		margin-bottom: -25px;
+		overflow: hidden;
+		.hero {
+			height: 100%;
+			background-image: url('/res/hero.svg');
+			background-position: bottom;
+			background-size: contain;
+			background-repeat: no-repeat;
+		}
+	}
+
+	.logo {
+		position: absolute;
+		bottom: -55px;
+		left: $padding;
+		width: 60px;
+		// padding: 0 50px;
+	}
+
+	.navLink, .activeNavLink {
+		font-size: $font_size_navbar;
+		// padding-left: 5px;
+		margin-left: $padding*2;
+	}
+
+	.navLink {
+		@include delinkify($color_navbar_text_default);
+		// color: $color_navbar_text_default;
+	}
+
+	.activeNavLink {
+		@include delinkify($color_navbar_text_active);
+		border-bottom: $navlink_border solid $color_navbar_text_active;
+		height: 100%;
+	}
+}

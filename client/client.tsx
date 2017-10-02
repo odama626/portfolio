@@ -5,6 +5,9 @@ import App from 'index';
 import { ConnectedRouter } from 'react-router-redux';
 import createStore from 'utils/store';
 import { Provider } from 'react-redux';
+import {polyfill } from 'smoothscroll-polyfill';
+
+polyfill();
 
 declare var module;
 declare var window;

@@ -1,0 +1,31 @@
+$li_dash_height: 5px;
+
+.container {
+	@include contentContainer;
+	padding-top: 100px;
+	color: $color_navbar_text_default;
+
+	.content {
+		padding: 0;
+		list-style: none;
+
+		> li {
+			&:before {
+				content: '';
+				position: absolute;
+				width: $li_dash_height*3;
+				height: $li_dash_height;
+				margin: $li_dash_height*2;
+				margin-left: -$li_dash_height*6;
+				background-color: $color_navbar_text_default;
+			}
+		}
+	}
+	.skills {
+		display: flex;
+		justify-content: space-between;
+		> div {
+			flex-grow: 0;
+		}
+	}
+}

@@ -26,7 +26,7 @@ if (ENV.DEPLOY_TARGET === ENV.TARGET_PRODUCTION ||
   styles = `
      <meta name="viewport" content="width=device-width, user-scalable=no"/>
 
-    <link href="https://fonts.googleapis.com/css?family=Signika:300,400,700" rel = "stylesheet" >
+    <link href="https://fonts.googleapis.com/css?family=Dosis:300,400,700" rel = "stylesheet" >
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel='stylesheet' type='text/css' href='/res/main.css'>
   `
@@ -34,7 +34,7 @@ if (ENV.DEPLOY_TARGET === ENV.TARGET_PRODUCTION ||
   styles = `
     <meta name="viewport" content="width=device-width, user-scalable=no"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Signika:300,400,700" rel = "stylesheet" >
+    <link href="https://fonts.googleapis.com/css?family=Dosis:300,400,700" rel = "stylesheet" >
     <link rel="stylesheet" type="text/css" href="http://localhost:3001/main.css">`;
   scripts = '<script src="http://localhost:3001/main.js"></script>'
 }
@@ -47,7 +47,6 @@ app.get('*', (req, res) => {
 
   let context = {};
   let {store, history} = createStore();
-
 
   let application = renderToString((
     <Provider store={store}>

@@ -14,6 +14,13 @@ export default class App extends React.Component<{}, {}> {
     return (
       <Switch>
 				<Route exact path='/' component={Home}/>
+        {/* <Switch>
+          <div>
+            <div />
+            <Route path='/about' component={Home} />
+            <div />
+          </div>
+        </Switch> */}
 			</Switch>
     );
   }
