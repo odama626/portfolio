@@ -1,8 +1,18 @@
 $skill_width: 33%;
 
 .container {
-	width: $skill_width;
+	width: 220px;
 	padding: 0 $padding;
+
+	@media (max-width: 569px) {
+		width: 200px;
+	}
+	@media (max-width: 529px) {
+		width: 180px;
+	}
+	@media (max-width: 489px) {
+		width: 100%;
+	}
 
 	&:first-child {
 		padding-left: 0;

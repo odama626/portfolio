@@ -3,6 +3,9 @@ $font_size_subheading: 16px;
 $image_width: 200px;
 
 .container {
+	@media (max-width: 618px) {
+		text-align: center;
+	}
 	> * {
 		vertical-align: top;
 		display: inline-block;

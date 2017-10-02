@@ -2,7 +2,7 @@ $li_dash_height: 5px;
 
 .container {
 	@include contentContainer;
-	padding-top: 100px;
+	padding-top: 100px !important;
 	color: $color_navbar_text_default;
 
 	.content {
@@ -26,6 +26,18 @@ $li_dash_height: 5px;
 		justify-content: space-between;
 		> div {
 			flex-grow: 0;
+		}
+	}
+}
+
+@media (max-width: 665px) {
+	.container {
+		.content {
+			> li {
+			}
+		}
+		.skills {
+			flex-wrap: wrap;
 		}
 	}
 }

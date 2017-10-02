@@ -30,5 +30,8 @@ $font_size_navbar: 18px;
 	right: 0;
 	margin: auto;
 	padding: 0 50px;
+	@media (max-width: 379px) {
+		padding: 0 20px;
+	}
 	background-color: $color_background;
 }
