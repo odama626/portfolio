@@ -34,10 +34,10 @@ class FullHeader extends React.Component<any, {}> {
 	render(): JSX.Element {
 		return (
 			<div id='header' className={style.container}>
+				<div id='headerHero' className={style.heroContainer}>
+					<div className={style.hero} />
+				</div>
 				<div className={style.innerContainer}>
-					<div id='headerHero' className={style.heroContainer}>
-						<div className={style.hero} />
-					</div>
 					<img className={style.logo} src='/res/face-logo.svg' />
 					{this.navStyle('/', 'Home')}
 					{this.navStyle('/#about', 'About')}

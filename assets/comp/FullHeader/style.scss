@@ -5,25 +5,25 @@ $navlink_border: 2px;
 	left: 0;
 	right: 0;
 	background-color: $color_navbar_background;
-	padding: $navlink_border $padding/2;
 
 	.innerContainer {
 		@include contentContainer;
-		background-color: $color_navbar_background;
+		background-color: transparent;
 		min-height: 22px;
 		position: relative;
 		text-align: right;
+		padding: $navlink_border $padding/2;
 	}
 
 	.heroContainer {
 		height: 200px;
-		margin-bottom: -25px;
+		margin-bottom: -30px;
 		overflow: hidden;
 		.hero {
 			height: 100%;
 			background-image: url('/res/hero.svg');
 			background-position: bottom;
-			background-size: contain;
+			background-size: cover;
 			background-repeat: no-repeat;
 		}
 	}
