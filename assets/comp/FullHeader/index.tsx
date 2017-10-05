@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as style from './style.scss';
+import * as style from './fullheader.scss';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as style from './style.scss';
+import * as style from './contentblock.scss';
 
 export default (props: ContentBlock) => (
 	<div className={style.container}>

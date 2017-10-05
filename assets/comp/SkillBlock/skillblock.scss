@@ -1,5 +1,16 @@
 $skill_width: 33%;
 
+@for $i from 1 to 4 {
+	.content:nth-child(#{i}) {
+		&:before {
+			content: $i;
+		}
+		.bar { animation-delay: ($i - 1) * 2s; }
+		.text { animation-delay: ($i - 1) * 2s + 2s;}
+	}
+}
+
+
 .container {
 	width: 220px;
 	padding: 0 $padding;

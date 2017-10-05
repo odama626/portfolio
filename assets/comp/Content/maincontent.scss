@@ -27,6 +27,18 @@ $li_dash_height: 5px;
 		> div {
 			flex-grow: 0;
 		}
+		@for $i from 1 to 5 {
+			> div:nth-child( #{$i} ) {
+				> div {
+					div:first-child {
+						animation-delay: ($i - 1) * 500ms;
+					}
+					div:last-child {
+						animation-delay: ($i - 1) * 500ms + 1s;
+					}
+				}
+			}
+		}
 	}
 }
 

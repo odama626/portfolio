@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as style from './style.scss';
+import * as style from './maincontent.scss';
 
 import ContentBlock from 'comp/ContentBlock';
 import SkillBlock from 'comp/SkillBlock';
