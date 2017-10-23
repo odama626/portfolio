@@ -20,7 +20,10 @@ export default () => (
 					heading='Hello World, I am Adam Sparks'
 					subheading = 'software developer & dev-ops engineer'
 				>
-					<p>lorem ipsum stuff</p>
+					<p style={{maxWidth: '690px'}}>
+						With my deeply embedded lust and enthusiasm for finding elegant solutions for challenging problems, I continue to expand my breadth of knowledge so I am able
+						to intimately understand unique and interesting problems.  Inately knowing what technology would best meld with the constraints to appropriately contain the problem.
+					</p>
 				</ContentBlock>
 			</li>
 			<li id='skills'><h3>Skills</h3>
@@ -39,20 +42,43 @@ export default () => (
 					/>
 					<SkillBlock
 						heading='Mobile'
-						content='content'
-						percentage={60}
+						content='Building out native mobile apps, or using React Native and similiar technologies to get that bare metal experience'
+						percentage={40}
 						color='#0B7C9C'
 					/>
-					<SkillBlock heading='Dev ops' content='content' percentage={70} color='#3A3A91' />
+					<SkillBlock
+						heading='Dev ops'
+						content='Setting servers from scratch, building out and maintaining development to production pipelines'
+						percentage={70}
+						color='#3A3A91'
+					/>
 				</div>
 			</li>
 			<li id='experience'><h3>Experience</h3>
+				<div>
+					<b>Worldwide Group</b>
+					<p>
+						Design, architect, develop website and restful services with modern technologies all while tracking and managing CI/CD
+						in an agile environment.  Technologies include but are not limited to:
+					</p>
+					<ul>
+						<li>Typescript / Javascript</li>
+						<li>Isomorphic React web apps</li>
+						<li>Django Powered sites</li>
+						<li>.Net APIs</li>
+					</ul>
+					<p><a href='https://wrsrents.com'>Worldwide Rental Services</a> and many others I cannot disclose.</p>
+					<b>Personal Client</b>
+					<p>
+						Proof of concept geofencing social media site for audio and video sharing<br />
+						<a href='https://geovoice.elev8ted.com'>Geovoice</a>
+					</p>
+					<b>The Weston Group</b>
+					<p>Designed and developed an embedded, mesh networked solution for temperature minitoring of cryogenic chambers. using a mixture of C and python</p>
+				</div>
 
 			</li>
 			<li id='portfolio'><h3>Portfolio</h3>
-				<p>
-
-				</p>
 
 			</li>
 			<li><h3>Services</h3>
