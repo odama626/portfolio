@@ -40,6 +40,9 @@ $navlink_border: 2px;
 		font-size: $font_size_navbar;
 		// padding-left: 5px;
 		margin-left: $padding*2;
+		@media (max-width: 449px) {
+			display: none;
+		}
 	}
 
 	.navLink {
