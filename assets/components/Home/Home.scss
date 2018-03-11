@@ -1,0 +1,151 @@
+$li_dash_height: 5px;
+
+.outerContainer {
+	width: 100%;
+	.hero {
+		position: relative;
+		background-attachment: fixed;
+		height: 400px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		z-index: 0;
+		overflow: hidden;
+
+		.heroContent {
+			// color: $purple;
+			color: $beard;
+			font-size: 1.75em;
+			text-shadow: 3px 3px 6px;
+			z-index: 1;
+			max-width: 600px;
+			// transition: all 350ms ease;
+			// transform:
+			// 	translateY(50vh);
+			transform: translateY(50vh);
+
+			@keyframes :global(takeoff) {
+				0% {
+					transform:
+						translate( 100px, 50vh)
+						rotateZ(10deg);
+						
+				}
+				30% {
+					transform:
+						translateY(0)
+						rotateZ(-2deg);
+				}
+				48% {
+					transform: translate(2px, 2px) rotateZ(2deg);
+				}
+				66% {
+					transform: translate(-2px, 2px) rotateZ(-2deg);
+				}
+				84% {
+					transform: translate(2px, -2px) rotateZ(2deg);
+				}
+				90% {
+					transform: translate(-5px, -2px) rotateZ(-30deg);
+				}
+				100% {
+					transform: rotateZ(-30deg) translateX(1500px);
+				}
+			}
+
+			&.animate:global {
+				animation: takeoff 20s;
+				transform: rotateZ(-30deg) translateX(1500px);
+			}
+		}
+	}
+
+	.hero2 {
+		// clip-path: polygon(0 63%, 100% 1%, 100% 100%, 0% 100%);
+		// clip-path: polygon(50% 0%, 100% 0, 100% 60%, 100% 98%, 0 76%, 0 38%);
+		// clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+		// clip-path: polygon(0 26%, 12% 35%, 27% 27%, 30% 36%, 41% 29%, 44% 38%, 53% 29%, 57% 37%, 63% 31%, 68% 39%, 78% 35%, 81% 41%, 91% 38%, 100% 33%, 100% 45%, 92% 43%, 82% 47%, 74% 41%, 69% 45%, 62% 39%, 58% 44%, 52% 38%, 46% 44%, 38% 36%, 30% 43%, 24% 35%, 13% 40%, 0 35%);
+		// clip-path: polygon(0% 34%, 7% 59%, 10% 28%, 12% 53%, 13% 32%, 15% 56%, 16% 39%, 19% 56%, 24% 31%, 26% 49%, 29% 28%, 34% 41%, 38% 42%, 43% 60%, 47% 28%, 54% 43%, 59% 19%, 65% 37%, 68% 25%, 74% 38%, 78% 26%, 84% 53%, 88% 22%, 92% 47%, 94% 28%, 98% 42%, 100% 28%, 99% 61%, 95% 47%, 92% 69%, 88% 48%, 85% 73%, 78% 46%, 75% 64%, 69% 47%, 64% 64%, 59% 44%, 54% 63%, 47% 51%, 44% 78%, 38% 56%, 34% 80%, 29% 46%, 26% 71%, 23% 60%, 19% 72%, 17% 56%, 15% 72%, 13% 55%, 12% 68%, 10% 47%, 6% 77%, 0% 54%, 0% 50%, 0% 35%);
+		clip-path: polygon(0% 28%, 2% 61%, 4% 19%, 5% 65%, 7% 22%, 8% 57%, 9% 28%, 10% 55%, 13% 28%, 14% 47%, 19% 24%, 23% 41%, 29% 28%, 36% 45%, 42% 19%, 48% 48%, 56% 17%, 64% 27%, 70% 11%, 77% 41%, 84% 14%, 89% 23%, 90% 9%, 95% 11%, 100% 0, 96% 31%, 92% 25%, 90% 40%, 85% 33%, 77% 62%, 70% 30%, 65% 44%, 56% 33%, 48% 67%, 42% 36%, 36% 60%, 29% 40%, 23% 56%, 20% 40%, 15% 64%, 13% 45%, 11% 70%, 9% 51%, 8% 71%, 7% 44%, 5% 78%, 4% 40%, 2% 75%);
+
+		position: relative;
+		background-attachment: fixed;
+		height: 100px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.bullet {
+		// clip-path: url(#bullet);
+		clip-path: circle(50% at 50% 50%);
+		width: 0.75em;
+		height: 0.75em;
+		margin-left: -1.1em;
+		margin-top: 0.13em;
+		float: left;
+		position: relative;
+		background-attachment: fixed;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.bulletGraphic {
+		clip-path: url(#bullet);
+		// clip-path: circle(50% at 50% 50%);
+		width: 200px;
+		height: 250px;
+		position: relative;
+		float: left;
+		background-attachment: fixed;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.portfolioContainer {
+		width: 100%;
+		background-attachment: fixed;
+	}
+}
+
+.container {
+	@include contentContainer;
+	padding-top: $cardPadding;
+	z-index: 1;
+	// color: $gold;
+	color: $white;
+
+	.skills {
+		display: flex;
+		justify-content: space-between;
+		align-content: stretch;
+
+
+		@for $i from 1 to 5 {
+			> div:nth-child( #{$i} ) {
+				> div {
+					div:first-child {
+						animation-delay: ($i - 1) * 500ms;
+					}
+					div:last-child {
+						animation-delay: ($i - 1) * 500ms + 1s;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 665px) {
+	.container {
+		.content {
+			> li {
+			}
+		}
+		.skills {
+			flex-wrap: wrap;
+		}
+	}
+}

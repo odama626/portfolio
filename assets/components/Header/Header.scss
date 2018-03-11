@@ -1,0 +1,164 @@
+$logo_width: 60px;
+$logo_height: 60px;
+$zIndex: 5;
+
+$headerColor: $primary_color;
+$textColor: $very-light-purple;
+$barColor: $white;
+$activeLinkColor: $pink;
+
+$hamburger_button_size: $header-height / 2.4;
+
+.container {
+  .spacer,
+  .innerContainer {
+    width: 100%;
+    height: $header-height;
+  }
+  .innerContainer {
+    top: 0;
+    z-index: $zIndex;
+    position: fixed;
+    background-color: $headerColor;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    display: flex;
+    align-items: center;
+
+    .logo {
+      width: $logo_width;
+      height: $logo_height;
+      background: url('/res/face-logo.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      flex-shrink: 0;
+      margin-top: 50px;
+      transform: scale(1, 1);
+      z-index: $zIndex +1;
+      transition: all 350ms ease;
+      transition-delay: 350ms;
+      @include Clickable;
+    }
+
+    .tray {
+      padding: $padding;
+      box-sizing: border-box;
+      display: flex;
+      flex-grow: 1;
+      justify-content: space-between;
+      height: 100%;
+      align-items: flex-end;
+      @media (max-width: $media_phone) {
+        width: 100%;
+        min-height: 0;
+        height: 0;
+        background-color: $headerColor;
+        z-index: $zIndex;
+        position: absolute;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        top: $header-height;
+        transition: min-height 500ms ease;
+        padding: 0 $padding;
+        overflow: hidden;
+      }
+      .left,
+      .right {
+        .link > a {
+          margin: $padding/2;
+          color: $textColor;
+          padding: $padding;
+          text-decoration: none;
+          transition: all 350ms ease;
+          border-bottom: 1px solid transparent;
+          border-bottom-right-radius: 100%;
+        }
+        .active > a {
+          color: $activeLinkColor;
+          border-bottom: 1px solid;
+          border-bottom-right-radius: 0;
+        }
+
+        @media (max-width: $media_phone) {
+          flex-direction: column;
+          .link {
+            border-bottom: 1px solid $barColor;
+            padding: $padding 0;
+            margin: 0;
+            > a {
+              border: none;
+            }
+
+            &.active {
+              border-color: $activeLinkColor;
+              > a {
+                border: none;
+              }
+            }
+          }
+        }
+      }
+      .left {
+        display: flex;
+      }
+      .right {
+        display: flex;
+      }
+    }
+
+    .hamburger {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      margin-right: $padding * 2;
+      width: $hamburger_button_size;
+      height: $hamburger_button_size;
+      @include Clickable;
+
+      .bar {
+        transition: transform 250ms ease;
+      }
+      transition: transform 350ms ease;
+
+      .bar {
+        width: 90%;
+        height: 2px;
+        margin: $padding/2 auto;
+        background-color: $barColor;
+      }
+    }
+  }
+
+  &.trayOpen {
+    .logo {
+      transition-delay: 0ms;
+      transform: scale(.75, .75);
+      margin-top: 0;
+    }
+    .tray {
+      min-height: calc(100vh - #{$header-height});
+      height: auto;
+    }
+    .hamburger {
+      transform: rotate(180deg);
+      .bar:first-of-type {
+        transform-origin: left;
+        transform: translateY(-1px) rotate(45deg);
+      }
+      .bar:nth-of-type(2) {
+        transform: scaleX(0);
+      }
+      .bar:last-of-type {
+        transform-origin: left;
+        transform: translateY(1px) rotate(-45deg);
+      }
+      .bar {
+        transition: transform 250ms ease;
+      }
+      transition: transform 350ms ease;
+    }
+  }
+}

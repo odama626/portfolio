@@ -1,0 +1,82 @@
+$besideAngle: 60deg;
+$angle: 80deg;
+
+.container {
+  // height: 20px;
+  flex-shrink: 4;
+  transition: all 500ms ease;
+  flex-basis: 1;
+  box-sizing: border-box;
+
+  .innerContainer {
+
+    &:before, &:after {
+      content: '';
+      background-color: $primary_color;
+      width: 10px;
+      height: 100%;
+      position: absolute;
+      margin-top: -80px;
+      z-index: -1;
+      left: 0;
+      bottom: 99%;
+    }
+  
+    &:after {
+      right: 0;
+      left: auto;
+    }
+  
+    background-color: $primary_color;
+    @include Clickable;
+    padding: $padding;
+    display: flex;
+    flex-direction: column;
+    .name {
+      color: $white;
+      font-size: 1.25em;
+      transition: all 300ms ease;
+      opacity: 1;
+    }
+    .contentContainer {
+      position: relative;
+      .description {
+        color: $white;
+        // height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        transition: transform 400ms ease;
+        transform: rotate3d(1, 0, 0, 180deg);
+        backface-visibility: hidden;
+      }
+      img, {
+        width: 100%;
+        transition: all 400ms ease;
+      transform: rotate3d(1, 0, 0, 0deg);
+        backface-visibility: hidden;
+        // transform-origin: top;
+      }
+    }
+  }
+
+  &.selected {
+    flex-grow: 3;
+    flex-shrink: 1;
+  }
+
+  &.details {
+    .contentContainer {
+      img {
+        transform: rotate3d(1, 0, 0, 180deg);
+      }
+      .description {
+        transform: rotate3d(1, 0, 0, 0deg);
+      }
+    }
+    .innerContainer > .name {
+      opacity: 0;
+    }
+  }
+
+}

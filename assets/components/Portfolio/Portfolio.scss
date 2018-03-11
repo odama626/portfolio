@@ -1,0 +1,10 @@
+.container {
+  @include contentContainer;
+  max-width: unset;
+  padding-bottom: $cardPadding;
+  display: flex;
+  // justify-content: space-around;
+  perspective: 2000px;
+  box-sizing: border-box;
+  overflow: hidden;
+}

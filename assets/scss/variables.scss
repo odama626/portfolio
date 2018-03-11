@@ -1,0 +1,56 @@
+/**	Sass Variables
+	*
+	*	automatically imported into every sass file by webpack
+	*/
+
+@import 'colors';
+
+// Spacings
+$padding: 10px;
+$cardPadding: $padding * 3;
+$header-height: 60px;
+
+$media_phone: 896px;
+
+$max_content_width: 930px;
+
+@mixin contentContainer {
+	max-width: $max_content_width;
+	left: 0;
+	right: 0;
+	margin: auto;
+	padding: $cardPadding 50px 0;
+	@media (max-width: 500px) {
+		padding: $cardPadding 20px 0;
+	}
+}
+
+
+@mixin overlay {
+	position: fixed;
+  top: $header-height;
+  @media (max-width: $media_phone) {
+    top: $header-height - 10px;
+  }
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $color_shade;
+}
+
+@mixin position($top, $right: $top, $bottom: $top, $left: $right) {
+	top: $top;
+	right: $right;
+	bottom: $bottom;
+	left: $left;
+}
+
+@mixin Clickable {
+	user-select: none;
+	cursor: pointer;
+}
+
+@mixin NotClickable {
+	user-select: none;
+	pointer-events: none;
+}

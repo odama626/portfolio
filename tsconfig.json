@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "jsx": "react",
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "baseUrl": "./",
+    "lib": ["es6", "dom"],
+    "paths": {
+      "utils": ["assets/utils"]
+    }
+  },
+  "exclude": [
+    "node_modules", "assets/components/web-components/node_modules"
+  ]
+}

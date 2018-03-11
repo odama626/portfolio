@@ -1,0 +1,98 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "portfolio v2, created with generator-isoreact",
+  "browserslist": [
+    "> 0%",
+    "IE 9"
+  ],
+  "main": "app.js",
+  "scripts": {
+    "dev:client": "webpack-dev-server --config config/webpack.dev.client.js",
+    "dev:server": "webpack --config config/webpack.dev.server.js",
+    "dev": "npm-run-all --parallel dev:server dev:client",
+    "stage:client": "NODE_ENV=staging webpack --config config/webpack.prod.client.js -p --env production",
+    "stage:server": "NODE_ENV=staging webpack --config config/webpack.prod.server.js --env production",
+    "stage": "npm-run-all --parallel stage:server stage:client",
+    "build:client": "NODE_ENV=production webpack --config config/webpack.prod.client.js -p --env production",
+    "build:server": "NODE_ENV=production webpack --config config/webpack.prod.server.js --env production",
+    "build": "npm-run-all --parallel build:server build:client",
+    "start": "echo 'Starting Server' && NODE_ENV=production node bin/server.js",
+    "lint": "tslint --project . --format stylish",
+    "test": "jest && npm run lint"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "<rootDir>/config/preprocessor.js"
+    },
+    "testMatch": [
+      "**/*.test.(ts|tsx|js)"
+    ],
+    "collectCoverage": true
+  },
+  "author": "Adam Sparks",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^8.1.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-react": "^6.24.1",
+    "compression": "^1.7.2",
+    "css-loader": "^0.28.10",
+    "dotenv": "^5.0.1",
+    "es6-promise": "^4.2.4",
+    "express": "^4.16.2",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^1.1.6",
+    "font-awesome": "^4.7.0",
+    "http": "0.0.0",
+    "imgr": "^0.10.4",
+    "isomorphic-fetch": "^2.2.1",
+    "node-sass": "^4.7.2",
+    "npm-run-all": "^4.1.2",
+    "postcss-loader": "^2.0.10",
+    "react": "^16.2.0",
+    "react-dates": "^16.2.1",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "^5.0.0-alpha.9",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.20.3",
+    "ts-loader": "^4.0.1",
+    "tslint-loader": "^3.5.3",
+    "typed-css-modules-loader": "0.0.11",
+    "typescript": "^2.7.2",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.11",
+    "webpack-node-externals": "^1.6.0"
+  },
+  "devDependencies": {
+    "@types/history": "^4.6.2",
+    "@types/jest": "^22.2.0",
+    "@types/react": "^16.0.40",
+    "@types/react-dom": "^16.0.4",
+    "@types/react-router-dom": "^4.2.3",
+    "@types/react-router-redux": "^5.0.11",
+    "@types/tapable": "^0.2.5",
+    "@types/uglify-js": "^2.6.30",
+    "@types/webpack-node-externals": "^1.6.3",
+    "babel-preset-env": "^1.6.1",
+    "jest": "^22.4.2",
+    "prettier": "^1.10.2",
+    "react-hot-loader": "^4.0.0",
+    "start-server-webpack-plugin": "^2.2.5",
+    "tslint": "^5.9.1",
+    "webpack-dev-server": "^3.1.1"
+  }
+}

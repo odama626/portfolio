@@ -1,0 +1,48 @@
+$height: 32px;
+
+.container {
+  height: $height;
+  background-color: $beard;
+  position: relative;
+  border: 1px solid;
+
+  .bar {
+    display: inline-block;
+    height: 100%;
+    line-height: $height;
+    animation: slide-in 2s ease forwards;
+    transform-origin: left;
+    transform: scaleX(0);
+
+  }
+
+  .text {
+    // color: $pink;
+    display: inline-block;
+    line-height: $height;
+    padding-left: $padding/2;
+    font-weight: 400;
+    font-size: 14px;
+    vertical-align: top;
+    opacity: 0;
+    animation: fade-in 350ms ease forwards;
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

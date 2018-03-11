@@ -1,0 +1,28 @@
+
+:global {
+
+	/** Global Styles
+		*/
+
+	body {
+		margin: 0;
+		font-family: 'Ubuntu', sans-serif;
+		.mainContent {
+			position: relative;
+			background-color: $primary_color;
+			// color: $text_color;
+			padding-top: 1px; // prevent border collapse beyond mainContent
+			box-sizing: border-box;
+      height: 100%;
+			min-height: calc(100vh - #{$header-height});
+		}
+	}
+
+	a {
+		color: $very-light-purple;
+		&:visited {
+			color: $dark-pink;
+		}
+	}
+/////////
+}

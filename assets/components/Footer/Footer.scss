@@ -1,0 +1,52 @@
+$footerColor: $primary_color;
+$textColor: $white;
+
+.container {
+  background-color: $footerColor;
+  display: flex;
+  align-items: center;
+  padding-top: $cardPadding;
+
+  .tray {
+    padding: $padding;
+    box-sizing: border-box;
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-start;
+
+    @media (max-width: $media_phone) {
+      width: 100%;
+      background-color: $footerColor;
+      flex-direction: column;
+      justify-content: flex-start;
+      transition: min-height 500ms ease;
+      padding: 0 $padding;
+      overflow: hidden;
+    }
+    .left, .right {
+      flex-direction: column;
+      margin: 0 $padding;
+      > a {
+        margin: $padding/2;
+        color: $white;
+        text-decoration: none;
+      }
+
+      @media(max-width: $media_phone) {
+        flex-direction: column;
+        align-items: center;
+        
+        > a {
+          padding: $padding 0;
+          margin: 0;
+        }
+      }
+    }
+    .left {
+      display: flex;
+    }
+    .right {
+      display: flex;
+    }
+  }
+}
