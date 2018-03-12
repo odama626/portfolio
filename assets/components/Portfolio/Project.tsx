@@ -16,6 +16,12 @@ interface IProps {
 export default class Project extends React.Component<IProps, {}> {
   container;
 
+  getTransform(element) {
+    let transform = element.style['transform'];
+    let x = Number.parseInt(transform.substr(transform.indexOf('(')+1)) || 0;
+    return x;
+  }
+
   getTranslation() {
     const { index, selectedIndex, itemCount} = this.props;
     const offset = 20;
@@ -26,6 +32,7 @@ export default class Project extends React.Component<IProps, {}> {
       let translation = 0;
       let rotation = 0;
       let zIndex = 0;
+      // let transformX = this.getTransform(me);
       if (index < selectedIndex) {
         translation = -(me.offsetLeft - offset * index);
         rotation = angle;
@@ -35,7 +42,7 @@ export default class Project extends React.Component<IProps, {}> {
         rotation = -angle;
         zIndex = itemCount - index;
       } else {
-        translation = parent.offsetWidth / 2 - me.offsetWidth / 2 - me.offsetLeft;
+        translation = (parent.offsetWidth / 2) - (me.offsetWidth / 2) - (me.offsetLeft);
         zIndex = itemCount;
       }
       return {

@@ -71,9 +71,9 @@ export default class Portfolio extends React.Component<{ animationDelay: number 
     setTimeout(() => this.animate(), this.props.animationDelay);
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return this.state.selected !== nextState.selected || this.state.showDetails !== nextState.showDetails;
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   return this.state.selected !== nextState.selected || this.state.showDetails !== nextState.showDetails;
+  // }
 
   render() {
     const { selected, showDetails, height } = this.state;
