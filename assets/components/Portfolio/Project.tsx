@@ -23,7 +23,6 @@ export default class Project extends React.Component<IProps, {}> {
     if (this.container) {
       let me = this.container;
       let parent = this.container.parentNode;
-      console.log(me);
       let translation = 0;
       let rotation = 0;
       let zIndex = 0;

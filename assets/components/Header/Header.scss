@@ -84,10 +84,13 @@ $hamburger_button_size: $header-height / 2.4;
           flex-direction: column;
           .link {
             border-bottom: 1px solid $barColor;
-            padding: $padding 0;
+            // padding: $padding 0;
             margin: 0;
             > a {
               border: none;
+              width: 100%;
+              display: block;
+              margin: 0;
             }
 
             &.active {

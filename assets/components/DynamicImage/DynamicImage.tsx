@@ -49,7 +49,6 @@ export default class DynamicImage extends React.Component<IProps, IState> {
     let style = window.getComputedStyle(this.container);
     let width = Number.parseInt(style.getPropertyValue('width'));
     let height = Number.parseInt(style.getPropertyValue('height'));
-    console.log(width, height);
     if (width >= height) {
       return { width: `${width}`};
     } else {

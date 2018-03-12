@@ -6,11 +6,11 @@ import { Link } from 'react-router-dom';
 
 const links = {
   left: {
-    Home: '/',
-    "Another Link": '/'
+    // Home: '/',
+    // "Another Link": '/'
   },
   right: {
-    'Link on the right': '/'
+    // 'Link on the right': '/'
   }
 }
 
