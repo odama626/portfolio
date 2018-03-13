@@ -6,7 +6,7 @@ let scripts = `
 let styles = `
 	<meta name="viewport" content="width=device-width, user-scalable=no"/>
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-	<meta name="theme-color" content="#161616">
+	<meta name="theme-color" content="#262626">
 `;
 
 if (ENV.DEPLOY_TARGET === ENV.TARGET_DEV) {
