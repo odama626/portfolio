@@ -5,12 +5,14 @@ import { routerReducer } from 'react-router-redux';
 import bounds from './reducers/bounds';
 import pathHistory from './reducers/pathHistory';
 
+import home from '../components/Home/Reducer';
+
 // resizeListener reducer
 
 const reducer = combineReducers({
   pathHistory,
   bounds,
-  // Modals,
+  home,
   router: routerReducer
 });
 

@@ -9,6 +9,8 @@ interface IProps {
     add: number;
     remove: number;
   }
+  onAdd?: () => any;
+  onRemove?: () => any;
 }
 
 interface IState {
@@ -25,9 +27,10 @@ export default class AnimationLoop extends React.Component<IProps, IState> {
 
   toggle() {
     const { toggleOn } = this.state;
-    const { delay } = this.props;
+    const { delay, onAdd = () => {}, onRemove = () => {} } = this.props;
     const next = !toggleOn;
     this.setState({toggleOn: next});
+    next? onAdd() : onRemove();
     setTimeout(() => this.toggle(), next? delay.remove : delay.add);
   }
 

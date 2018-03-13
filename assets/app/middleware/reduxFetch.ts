@@ -52,8 +52,11 @@ export default store => next => action => {
       if (r.ok && r.headers.has('Authorization')) {
         window.localStorage.setItem(ENV.AUTH_TOKEN, r.headers.get('Authorization') || '');
       }
-      return r.json()
-        .catch(data => data); // let responses without json pass through
+      return r.text()
+        .then(data => {
+          try { return JSON.parse(data); }
+          catch(e) { return data; }
+        });
     })
     .then(data => {
       next({

@@ -1,0 +1,125 @@
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'portfolio' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@function unicode($str) {
+  @return unquote("\"") + $str + unquote("\"");
+}
+
+.icon-at-sign {
+  &:before {
+    content: unicode($icon-at-sign); 
+  }
+}
+.icon-cast {
+  &:before {
+    content: unicode($icon-cast); 
+  }
+}
+.icon-check {
+  &:before {
+    content: unicode($icon-check); 
+  }
+}
+.icon-chevron-down {
+  &:before {
+    content: unicode($icon-chevron-down); 
+  }
+}
+.icon-chevron-up {
+  &:before {
+    content: unicode($icon-chevron-up); 
+  }
+}
+.icon-delete {
+  &:before {
+    content: unicode($icon-delete); 
+  }
+}
+.icon-download-cloud {
+  &:before {
+    content: unicode($icon-download-cloud); 
+  }
+}
+.icon-edit {
+  &:before {
+    content: unicode($icon-edit); 
+  }
+}
+.icon-github {
+  &:before {
+    content: unicode($icon-github); 
+  }
+}
+.icon-gitlab {
+  &:before {
+    content: unicode($icon-gitlab); 
+  }
+}
+.icon-hash {
+  &:before {
+    content: unicode($icon-hash); 
+  }
+}
+.icon-linkedin {
+  &:before {
+    content: unicode($icon-linkedin); 
+  }
+}
+.icon-rss {
+  &:before {
+    content: unicode($icon-rss); 
+  }
+}
+.icon-send {
+  &:before {
+    content: unicode($icon-send); 
+  }
+}
+.icon-slack {
+  &:before {
+    content: unicode($icon-slack); 
+  }
+}
+.icon-terminal {
+  &:before {
+    content: unicode($icon-terminal); 
+  }
+}
+.icon-thumbs-down {
+  &:before {
+    content: unicode($icon-thumbs-down); 
+  }
+}
+.icon-thumbs-up {
+  &:before {
+    content: unicode($icon-thumbs-up); 
+  }
+}
+.icon-twitter {
+  &:before {
+    content: unicode($icon-twitter); 
+  }
+}
+.icon-user {
+  &:before {
+    content: unicode($icon-user); 
+  }
+}
+.icon-social-linkedin {
+  &:before {
+    content: unicode($icon-social-linkedin); 
+  }
+}
+

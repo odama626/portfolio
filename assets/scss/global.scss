@@ -1,8 +1,19 @@
+@font-face {
+  font-family: 'portfolio';
+  src:
+    url('/res/fonts/portfolio.ttf?rf8m23') format('truetype'),
+    url('/res/fonts/portfolio.woff?rf8m23') format('woff'),
+    url('/res/fonts/portfolio.svg?rf8m23#portfolio') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 
 :global {
 
 	/** Global Styles
 		*/
+	
+	@import 'iconClasses';
 
 	body {
 		margin: 0;

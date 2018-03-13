@@ -108,11 +108,27 @@ $li_dash_height: 5px;
 		width: 100%;
 		background-attachment: fixed;
 	}
+
+	.contactContainer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.socialContainer {
+		display: inline-block;
+		> a {
+			font-size: 1.5em;
+			text-decoration: none;
+			margin: 0 $padding;
+			@include Clickable;
+		}
+	}
 }
 
 .container {
 	@include contentContainer;
-	padding-top: $cardPadding;
+	padding-top: 0 !important;
 	z-index: 1;
 	// color: $gold;
 	color: $white;

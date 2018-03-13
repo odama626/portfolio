@@ -7,4 +7,11 @@
   perspective: 2000px;
   box-sizing: border-box;
   overflow: hidden;
+
+  @media (max-width: $media_phone) {
+    width: 100%;
+    height: unset;
+    flex-direction: column;
+    max-height: 75vh;
+  }
 }

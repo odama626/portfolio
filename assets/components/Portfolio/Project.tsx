@@ -1,6 +1,8 @@
 import * as React from 'react';
 import * as style from './Project.scss';
 
+import { connect } from 'react-redux';
+
 interface IProps {
   name: string;
   image: string;
@@ -11,9 +13,10 @@ interface IProps {
   index: number;
   itemCount: number;
   link: string;
+  mobile?: boolean;
 }
 
-export default class Project extends React.Component<IProps, {}> {
+class Project extends React.Component<IProps, {}> {
   container;
 
   getTransform(element) {
@@ -23,7 +26,7 @@ export default class Project extends React.Component<IProps, {}> {
   }
 
   getTranslation() {
-    const { index, selectedIndex, itemCount} = this.props;
+    const { index, selectedIndex, itemCount, mobile} = this.props;
     const offset = 20;
     const angle = 60;
     if (this.container) {
@@ -32,27 +35,34 @@ export default class Project extends React.Component<IProps, {}> {
       let translation = 0;
       let rotation = 0;
       let zIndex = 0;
+
+      let myOffset = mobile? me.offsetTop : me.offsetLeft;
+      let mySize = mobile? me.offsetHeight : me.offsetWidth;
+      let parentSize = mobile? parent.offsetHeight : parent.offsetWidth;
+
       // let transformX = this.getTransform(me);
       if (index < selectedIndex) {
-        translation = -(me.offsetLeft - offset * index);
+        translation = -(myOffset - offset * index);
         rotation = angle;
         zIndex = index;
       } else if (index > selectedIndex) {
-        translation = (parent.offsetWidth - me.offsetWidth - me.offsetLeft) - (offset * (itemCount - index));
+        translation = (parentSize - mySize - myOffset) - (offset * (itemCount - index));
         rotation = -angle;
         zIndex = itemCount - index;
       } else {
-        translation = (parent.offsetWidth / 2) - (me.offsetWidth / 2) - (me.offsetLeft);
+        translation = (parentSize / 2) - (mySize / 2) - myOffset;
         zIndex = itemCount;
       }
       return {
-        transform: `translateX(${translation}px) rotate3d(0,1,0,${rotation}deg)`,
+        transform: `translate${mobile? 'Y' : 'X'}(${translation}px) rotate3d(${mobile? '1, 0' : '0,1'},0,${mobile? rotation * 2 : rotation}deg)`,
         zIndex
       }
     }
   }
+
+
   render() {
-    const { name, image, description, showDetails, selectedIndex, index, itemCount, link, ...rest} = this.props;
+    const { name, image, description, showDetails, selectedIndex, index, itemCount, link, mobile, dispatch, ...rest} = this.props;
     let transform = this.getTranslation();
     return (
       <div
@@ -75,3 +85,6 @@ export default class Project extends React.Component<IProps, {}> {
     );
   }
 }
+
+
+export default connect(state => ({mobile: state.bounds.mobile}))(Project);

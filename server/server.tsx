@@ -3,6 +3,7 @@ import compression from 'compression';
 import { discernMobile, discernFile, renderApp, renderHtml } from './Utils';
 import createStore from '../assets/app/Store';
 import { IMGR } from 'imgr';
+import api from './api';
 
 declare var process;
 
@@ -17,6 +18,7 @@ imgr.serve('assets/res')
 
 app.use('/res', express.static('assets/res'));
 app.use('/res', express.static('bin/'));
+app.use('/api', api);
 app.use(discernFile);
 app.use(discernMobile);
 
