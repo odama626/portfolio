@@ -6,7 +6,7 @@ let scripts = `
 let styles = `
 	<meta name="viewport" content="width=device-width, user-scalable=no"/>
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-	<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+	<meta name="theme-color" content="#161616">
 `;
 
 if (ENV.DEPLOY_TARGET === ENV.TARGET_DEV) {
