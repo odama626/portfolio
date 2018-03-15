@@ -5,11 +5,3 @@ export function loadServiceWorker() {
         .catch(() => console.warn('failed to register sw'));
     }
 }
-
-// export function loadWorker(loader: string, path: string) {
-//   if (ENV.BUILD_TARGET === ENV.BUILD_TARGET_CLIENT) {
-//     return require(`${loader}!${path}`).default;
-//   } else {
-//     return '';
-//   }
-// }

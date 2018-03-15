@@ -13,7 +13,6 @@ import development from './middleware/development';
 import reduxFetch from './middleware/reduxFetch';
 import dynamicTitle from './middleware/dynamicTitle';
 import scrollToHash from './middleware/scrollToHash';
-// import Header from './Header/middleware';
 
 let mw = [thunk, reduxFetch, scrollToHash, resizeListener, dynamicTitle, ...development];
 

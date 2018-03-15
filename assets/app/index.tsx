@@ -15,13 +15,6 @@ import 'es6-promise/auto';
 
 import '../scss/global.scss';
 
-// import MyWorker from './webworkers';
-
-// import * as Cache  from 'worker!./webworkers/cache';
-// declare module "worker-loader!*";
-
-
-
 export default () => (
   <div>
     <Header />

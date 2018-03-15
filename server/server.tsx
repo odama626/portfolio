@@ -15,9 +15,6 @@ imgr.serve('assets/res')
   .namespace('/res/optimize')
   .using(app);
 
-
-// specific location for worker on global scope;
-// app.use('/worker.js', express.static('bin/worker.js'));
 app.use('/res', express.static('assets/res'));
 app.use('/res', express.static('bin/'));
 app.use('/api', api);
