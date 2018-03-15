@@ -9,6 +9,7 @@ module.exports = { ...core,  ...{
     './server/index.js',
   ],
   target: 'node',
+  node: { __dirname: false },
 
   externals: [nodeExternals()],
   plugins: core.plugins.concat([

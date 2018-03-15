@@ -135,7 +135,7 @@ class Home extends React.Component<any,{}> {
             <h3 id='contact'>Contact</h3>
             <span className={style.socialContainer}>
               {Object.keys(socialLinks).map((classname, i) => (
-                <a key={i} className={classname} title={socialLinks[classname][0]} href={socialLinks[classname][1]} />
+                <a key={i} className={classname} title={socialLinks[classname][0]} target="_blank" href={socialLinks[classname][1]} />
               ))}
             </span>
           </div>

@@ -7,7 +7,7 @@ module.exports = { ...webpackBase, ...{
     'react-hot-loader/patch',
     `webpack-dev-server/client?http://localhost:${port+1}`,
     'webpack/hot/only-dev-server',
-    webpackBase.entry.main
+    webpackBase.entry.main,
   ],
   mode: 'development',
   devtool: 'source-map',

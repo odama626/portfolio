@@ -16,9 +16,19 @@ imgr.serve('assets/res')
   .using(app);
 
 
+// specific location for worker on global scope;
+// app.use('/worker.js', express.static('bin/worker.js'));
 app.use('/res', express.static('assets/res'));
 app.use('/res', express.static('bin/'));
 app.use('/api', api);
+
+// match filenames requested at root (primarily for web workers);
+app.get(/^\/([\w\.\+\*\'\(\)\,\-\_]+\.js)/, (req, res) => {
+  res.set('Content-Type', 'application/javascript');
+  console.log('loading root file with regex', req.params);
+  res.sendFile(`${__dirname}/${req.params[0]}`);
+});
+
 app.use(discernFile);
 app.use(discernMobile);
 
