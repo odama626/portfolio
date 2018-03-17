@@ -33,7 +33,7 @@ const urlsToCache = [
 ]
 
 self.addEventListener('install', (event: any) => {
-  console.log('installing sw');
+  // console.log('installing sw');
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
@@ -41,11 +41,11 @@ self.addEventListener('install', (event: any) => {
         return cache.addAll(urlsToCache)
       }).catch(e => console.log(e))
   );
-  console.log('Service worker installing');
+  // console.log('Service worker installing');
 })
 
 self.addEventListener('activate', event => {
-  console.log('Service worker activating.');
+  // console.log('Service worker activating.');
 })
 
 self.addEventListener('fetch', (event: any) => {
@@ -55,12 +55,11 @@ self.addEventListener('fetch', (event: any) => {
         if (response) {
           return response;
         }
-        console.log('cache response', response);
         return fetch(event.request);
       })
     );
 })
 
 self.addEventListener('message', event => {
-  console.log(event.data);
+  // console.log(event.data);
 })
