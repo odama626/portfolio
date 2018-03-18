@@ -1,0 +1,11 @@
+.container {
+  width: 100%;
+  background-color: $primary_color;
+  z-index: 0;
+  padding: 1px;
+
+  .contentContainer {
+    @include contentContainer;
+    color: $white;
+  }
+}

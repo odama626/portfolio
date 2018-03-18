@@ -9,6 +9,7 @@ import DynamicImage from '../DynamicImage/DynamicImage';
 import AnimationLoop from '../AnimationLoop/AnimationLoop';
 import Portfolio from '../Portfolio/Portfolio';
 import Bullet from '../SVG/Bullet';
+import Container from '../Container/Container';
 
 import { fetchNewQuote } from './Reducer';
 
@@ -30,12 +31,13 @@ class Home extends React.Component<any,{}> {
     const { quote, dispatch } = this.props;
     return (
       <div  className={style.outerContainer}>
-        <DynamicImage id='home' className={style.hero} src="galaxy.jpg" initial={{ height: "100" }}>
+        <DynamicImage  className={style.background} src="galaxy.jpg" initial={{height: "100"}} />
+        <div id='home' className={style.hero}>
           <AnimationLoop primaryClass={style.heroContent} onRemove={() => dispatch(fetchNewQuote())} toggleClass={style.animate} delay={{add: 350, remove: 20000}}>
               {quote}
           </AnimationLoop>
-        </DynamicImage>
-        <div className={style.container} id='about'>
+        </div>
+        <Container id='about'>
           <ContentBlock
             image="/res/face-logo-think.svg"
             heading="Hello World, I am Adam Sparks"
@@ -56,9 +58,9 @@ class Home extends React.Component<any,{}> {
             from the rest.
             <br />Lets make something great together!
           </p>
-        </div>
-        <DynamicImage className={style.hero2} src="galaxy.jpg" initial={{ height: "100" }} />
-        <div className={style.container}>
+        </Container>
+        <div className={style.hero2}/>
+        <Container>
           <div className={style.skills} id='specialization'>
             <SkillBlock
               heading="Web design"
@@ -85,10 +87,10 @@ class Home extends React.Component<any,{}> {
               color="#a44e90"
             />
           </div>
-          </div>
-          <DynamicImage className={style.hero2} src="galaxy.jpg" initial={{ height: "100" }} />
+          </Container>
+          <div className={style.hero2}/>
           {/* <DynamicImage className={style.bulletGraphic} src="galaxy.jpg" initial={{ height: "100" }} />   */}
-          <div className={style.container} id='clients'>
+          <Container id='clients'>
           <div>
             <DynamicImage className={style.bullet} src="galaxy.jpg" initial={{ height: "100" }} />  
             <b>Worldwide Group</b>
@@ -104,14 +106,14 @@ class Home extends React.Component<any,{}> {
               <li>.Net APIs</li>
             </ul>
             <p>
-              <a href="https://wrsrents.com">Worldwide Rental Services</a> and many others I cannot
+              <a target='_blank' href="https://wrsrents.com">Worldwide Rental Services</a> and many others I cannot
               disclose.
             </p>
             <DynamicImage className={style.bullet} src="galaxy.jpg" initial={{ height: "100" }} />  
             <b>Personal Client</b>
             <p>
               Proof of concept geofencing social media site for audio and video sharing<br />
-              <a href="https://geovoice.elev8ted.com">Geovoice</a>
+              <a target='_blank' href="https://geovoice.elev8ted.com">Geovoice</a>
             </p>
             <DynamicImage className={style.bullet} src="galaxy.jpg" initial={{ height: "100" }} />  
             <b>The Weston Group</b>
@@ -120,15 +122,15 @@ class Home extends React.Component<any,{}> {
               cryogenic chambers. using a mixture of C and python
             </p>
           </div>
-          </div>
-          <DynamicImage className={style.hero2} src="galaxy.jpg" initial={{ height: "100" }} />
-          <div className={style.container}>
+          </Container>
+          <div className={style.hero2}/>
+          <Container>
           <h3>Portfolio</h3>
-        </div>
-          <DynamicImage id='projects' className={style.portfolioContainer} src="galaxy.jpg" initial={{ height: "100" }}>
+          </Container>
+          <div id='projects' className={style.portfolioContainer}>
             <Portfolio animationDelay={3000} />
-          </DynamicImage>
-        <div className={style.container}>
+          </div>
+        <Container>
           <h3 id='services'>Services</h3>
           <p />
           <div className={style.contactContainer}>
@@ -139,7 +141,7 @@ class Home extends React.Component<any,{}> {
               ))}
             </span>
           </div>
-        </div>
+        </Container>
         
         {/* <Bullet />     */}
       </div>
