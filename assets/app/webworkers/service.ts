@@ -1,4 +1,4 @@
-const CACHE_NAME = 'omarzion_portfolio_v0.2.0';
+const CACHE_NAME = 'omarzion_portfolio_v0.3.0';
 
 const urlsToCache = [
   '/',
