@@ -35,8 +35,8 @@ class ContactForm extends React.Component<any, IState> {
     const { state } = this.props;
     const { name, email, comment } = this.state;
     return (
-      <div className={`${style.animateContainer} ${ state === STATE.PENDING || state === STATE.SUBMITTED ? style.pending : ''} ${state === STATE.SUBMITTED ? style.submitted : ''}`}>
-        <div className={style.thanks}>Message Sent! Thanks!</div>
+      <div className={`${style.animateContainer} ${ state === STATE.PENDING || state === STATE.SUBMITTED ? style.pending : ''} ${state === STATE.SUBMITTED || state === STATE.ERROR ? style.submitted : ''}`}>
+        <div className={style.thanks}>{state === STATE.ERROR ? 'Oops, something went wrong.' : 'Message Sent! Thanks!'}</div>
         <form onSubmit={e => e.preventDefault()} className={style.container}>
           <input onChange={e => this.setState({name: e.target.value})} value={name} required type='text' placeholder='Name*' />
           <input onChange={e => this.setState({email: e.target.value})} value={email} required type='text' placeholder='Email*' />
