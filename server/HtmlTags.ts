@@ -2,6 +2,7 @@ let scripts = `
 	<script defer type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/react/16.2.0/umd/react.production.min.js'></script>
 	<script defer type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.2.0/umd/react-dom.production.min.js'></script>
 	<script defer type='text/javascript' src='/res/main.js'></script>
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 `;
 let styles = `
 	<meta name="viewport" content="width=device-width, user-scalable=no"/>
@@ -22,7 +23,18 @@ if (ENV.DEPLOY_TARGET === ENV.TARGET_DEV) {
   styles += `<link rel='stylesheet' type='text/css' href='http://localhost:${+ENV.PORT + 1}/main.css'>`;
   scripts = `<script src="http://localhost:${+ENV.PORT + 1}/main.js"></script>`;
 } else {
-  styles += `<link rel="stylesheet" type="text/css" href="/res/main.css">`;
+	styles += `<link rel="stylesheet" type="text/css" href="/res/main.css">`;
+	scripts += `
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-81658884-4"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'UA-81658884-4');
+		</script>
+`
 }
 
 export default { styles, scripts };

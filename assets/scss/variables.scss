@@ -15,6 +15,25 @@ $media_phone: 896px;
 
 $max_content_width: 930px;
 
+@function unicode($str) {
+  @return unquote("\"") + $str + unquote("\"");
+}
+
+@mixin icon($icon) {
+		content: unicode($icon);
+		font-family: 'portfolio' !important;
+		speak: none;
+		font-style: normal;
+		font-weight: normal;
+		font-variant: normal;
+		text-transform: none;
+		line-height: 1;
+
+		/* Better Font Rendering =========== */
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+}
+
 @mixin contentContainer {
 	max-width: $max_content_width;
 	left: 0;

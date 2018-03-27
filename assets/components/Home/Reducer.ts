@@ -4,6 +4,12 @@ const FETCH_NEXT_QUOTE = {
   ERROR: 'HOME_FETCH_NEXT_QUOTE_ERROR'
 }
 
+const SUBMIT_CONTACT_FORM = {
+  PENDING: 'SUBMIT_CONTACT_FORM_PENDING',
+  SUCCESS: 'SUBMIT_CONTACT_FORM_SUCCESS',
+  ERROR: 'SUBMIT_CONTACT_FORM_ERROR',
+}
+
 export function fetchNewQuote() {
   const t = FETCH_NEXT_QUOTE;
   return {
@@ -12,12 +18,34 @@ export function fetchNewQuote() {
   }
 }
 
+export function submitContactForm(name: string, email: string, comment: string) {
+  const t = SUBMIT_CONTACT_FORM;
+  return {
+    type: [t.PENDING, t.SUCCESS, t.ERROR],
+    url: '/contact',
+    method: 'post',
+    data: { name, email, comment }
+  }
+}
+
+export enum ContactForm {
+  PENDING,
+  ERROR,
+  SUBMITTED,
+  UNTOUCHED
+}
+
+interface IState {
+  quoteLoading: boolean;
+  quote: string;
+  contact: ContactForm
+}
 
 
-
-const initialState = {
+const initialState: IState = {
   quoteLoading: true,
-  quote: 'With iteration comes perfection'
+  quote: 'With iteration comes perfection',
+  contact: ContactForm.UNTOUCHED
 }
 
 
@@ -27,6 +55,12 @@ export default (state=initialState, action) => {
       return {...state, quoteLoading: true};
     case FETCH_NEXT_QUOTE.SUCCESS:
       return {...state, quote: action.data};
+    case SUBMIT_CONTACT_FORM.PENDING:
+      return { ...state, contact: ContactForm.PENDING};
+    case SUBMIT_CONTACT_FORM.SUCCESS:
+      return { ...state, contact: ContactForm.SUBMITTED};
+    case SUBMIT_CONTACT_FORM.ERROR:
+      return { ...state, contact: ContactForm.ERROR};
     default:
       return state;
   }

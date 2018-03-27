@@ -1,6 +1,13 @@
 import * as express from 'express';
+import * as Mailgun from 'mailgun-js';
+import * as bodyParser from 'body-parser';
+import * as sanitize from 'mongo-sanitize';
+
+const mailgun = Mailgun({apiKey: ENV.MAILGUN_KEY, domain: ENV.DOMAIN});
 
 const app = express();
+
+app.use(bodyParser.json())
 
 const quotes = [
   'With iteration comes perfection',
@@ -17,6 +24,25 @@ app.get('/', (req, res) => {
 
 app.get('/quote', (req, res) => {
   res.send(quotes[Math.random()*quotes.length | 0]);
+});
+
+app.post('/contact', (req, res) => {
+  const body = sanitize(req.body);
+  const data = {
+    from: "info@adamsparks.me",
+    to: "wave@adamsparks.me",
+    subject: "Email from Portfolio Site",
+    text: (
+`Name: ${body.name}
+Email: ${body.email}
+Comment: ${body.comment}
+`
+    )
+  }
+  mailgun.messages().send(data, (error, body) => {
+    console.log(error, body);
+    res.status(error? 500 : 200).json(body.message);
+  });
 })
 
 

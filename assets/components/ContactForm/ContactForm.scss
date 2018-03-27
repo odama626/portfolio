@@ -1,0 +1,93 @@
+.animateContainer {
+  position: relative;
+  &.pending {
+    > form {
+      :global {
+        animation: submitTakeoff 2s ease forwards;
+      }
+    }
+  }
+  .thanks {
+    position: absolute; 
+    @include position(0);
+    text-align: center;
+    margin: auto;
+    height: 1.5em;
+    font-size: 2em;
+    color: $very-light-purple;
+    opacity: 0;
+    transition: opacity 300ms ease;
+  }
+
+  &.submitted {
+    .thanks {
+      :global {
+        animation: takeoff 10s ease forwards;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.container {
+  width: 100%;
+  box-sizing: border-box;
+  padding: $padding;
+  display: flex;
+  flex-direction: column;
+  transition: all ease 500ms;
+  transform-origin: bottom left;
+
+  // &.pending {
+    
+  // }
+
+  > input, textarea {
+    margin: $padding 0;
+    display: block;
+    padding: $padding;
+    background-color: $primary_color;
+    color: $white;
+    border: 1px solid $very-light-purple;
+    font-size: 1.15em;
+  }
+
+  > textarea {
+    min-height: 1.15em * 4;
+  }
+
+  .send {
+    background-color: $very-light-purple;
+    border: 1px solid $very-light-purple;
+    border-radius: 4px;
+    font-size: 1.15em;
+    padding: $padding;
+    @include Clickable;
+    // color: $primary_color;
+    > div {
+      &:after {
+        @include icon($icon-send);
+        vertical-align: middle;
+        margin-left: $padding;
+      }
+    }
+  }
+}
+
+@keyframes :global(submitTakeoff) {
+  0% {
+    transform: scale(1, 1);
+  }
+  15% {
+    transform: scale(0.5, 0.5) rotate(-10deg);
+  }
+  20% {
+    transform: scale(0.2, 0.2) rotate(-35deg);
+  }
+  25% {
+    transform: scale(0.2, 0.2) rotate(-35deg) translateX(-50px);
+  }
+  100% {
+    transform: scale(0.2, 0.2) rotate(-35deg) translateX(1000vw);
+  }
+}

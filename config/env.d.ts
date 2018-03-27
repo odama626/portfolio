@@ -12,6 +12,12 @@ declare var ENV: {
   API_ROOT: string;
   AUTH_TOKEN: string;
 
+  RECAPTCHA_SITE_KEY: string;
+  RECAPTCHA_SECRET: string;
+
+  MAILGUN_KEY: string;
+  DOMAIN: string;
+
   // Client or server
   BUILD_TARGET: string;
   BUILD_TARGET_CLIENT: 'client';

@@ -10,6 +10,7 @@ import AnimationLoop from '../AnimationLoop/AnimationLoop';
 import Portfolio from '../Portfolio/Portfolio';
 import Bullet from '../SVG/Bullet';
 import Container from '../Container/Container';
+import ContactForm from '../ContactForm/ContactForm';
 
 import { fetchNewQuote } from './Reducer';
 
@@ -141,6 +142,7 @@ class Home extends React.Component<any,{}> {
               ))}
             </span>
           </div>
+          <ContactForm />
         </Container>
         
         {/* <Bullet />     */}

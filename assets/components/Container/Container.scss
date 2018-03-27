@@ -3,6 +3,7 @@
   background-color: $primary_color;
   z-index: 0;
   padding: 1px;
+  box-sizing: border-box;
 
   .contentContainer {
     @include contentContainer;
