@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as style from './ContactForm.scss';
-import * as Recaptcha from 'react-recaptcha';
+// import * as Recaptcha from 'react-recaptcha';
 import {ContactForm as STATE} from '../Home/Reducer';
 
 import { connect } from 'react-redux';
@@ -40,10 +40,10 @@ class ContactForm extends React.Component<any, IState> {
           <input onChange={e => this.setState({email: e.target.value})} value={email} required type='text' placeholder='Email*' />
           <textarea onChange={e => this.setState({comment: e.target.value})} value={comment} placeholder="What's on your mind?" />
           <div>
-            {ENV.BUILD_TARGET === ENV.BUILD_TARGET_CLIENT
+            {/* {ENV.BUILD_TARGET === ENV.BUILD_TARGET_CLIENT
               ? <Recaptcha sitekey={ENV.RECAPTCHA_SITE_KEY} theme="dark" render="explicit" />
               : null
-            }
+            } */}
             <button onClick={this.submitForm.bind(this)} className={style.send}><div>Send</div></button>
           </div>
         </form>
