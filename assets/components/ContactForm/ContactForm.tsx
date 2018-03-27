@@ -24,7 +24,7 @@ class ContactForm extends React.Component<any, IState> {
   }
 
   submitForm(event) {
-    if (this.props.state !== STATE.UNTOUCHED) {
+    if (this.props.state === STATE.UNTOUCHED) {
       const { dispatch, state } = this.props;
       const { name, email, comment } = this.state;
       dispatch(Actions.submitContactForm(name, email, comment));
