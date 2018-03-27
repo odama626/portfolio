@@ -24,9 +24,11 @@ class ContactForm extends React.Component<any, IState> {
   }
 
   submitForm(event) {
-    const { dispatch, state } = this.props;
-    const { name, email, comment } = this.state;
-    dispatch(Actions.submitContactForm(name, email, comment));
+    if (this.props.state !== STATE.UNTOUCHED) {
+      const { dispatch, state } = this.props;
+      const { name, email, comment } = this.state;
+      dispatch(Actions.submitContactForm(name, email, comment));
+    }
   }
   
   render() {
@@ -44,7 +46,7 @@ class ContactForm extends React.Component<any, IState> {
               ? <Recaptcha sitekey={ENV.RECAPTCHA_SITE_KEY} theme="dark" render="explicit" />
               : null
             } */}
-            <button onClick={this.submitForm.bind(this)} className={style.send}><div>Send</div></button>
+            <button disabled={state !== STATE.UNTOUCHED} onClick={this.submitForm.bind(this)} className={style.send}><div>Send</div></button>
           </div>
         </form>
       </div>
