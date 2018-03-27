@@ -1,4 +1,4 @@
-const CACHE_NAME = 'omarzion_portfolio_v0.8.0';
+const CACHE_NAME = 'omarzion_portfolio_v0.10.0';
 
 const urlsToCache = [
   '/',
@@ -52,20 +52,24 @@ self.addEventListener('fetch', (event: any) => {
   event.respondWith(
     caches.match(event.request)
       .then(response => {
-        let fetchChain = fetch(event.request)
-          .then(res => {
-            let resClone = res.clone();
-            caches.open(CACHE_NAME)
-              .then(cache => cache.put(event.request, resClone));
-            return res;
-          })
         if (response) {
           return response;
         }
-        return fetchChain;
+        return fetch(event.request);
       })
     );
-})
+  event.waitUntil(update(event.request))
+});
+
+function update(request) {
+  return caches.open(CACHE_NAME).then(function (cache) {
+    return fetch(request).then(function (response) {
+      return cache.put(request, response.clone()).then(function () {
+        return response;
+      });
+    });
+  });
+}
 
 self.addEventListener('message', event => {
   // console.log(event.data);
