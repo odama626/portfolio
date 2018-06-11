@@ -18,7 +18,7 @@ const socialLinks = {
   "icon-github": ['Github', "https://github.com/omarzion"],
   "icon-gitlab": ['Gitlab', 'http://gitlab.exceptionallyrecursive.com/omarzion'],
   "icon-linkedin": ['LinkedIn', 'https://www.linkedin.com/in/adam-sparks-0b72877a/'],
-  "icon-at-sign": ['Email', 'mailto:wave@adamsparks.me?']
+  "icon-at-sign": ['Email', 'mailto:wave@adamsparks.me']
 }
 
 

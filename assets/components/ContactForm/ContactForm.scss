@@ -5,7 +5,7 @@
     transition: opacity 300ms ease;
   }
   &.pending {
-    > form {
+    > .container {
         opacity: 0;
     }
   }
@@ -19,6 +19,7 @@
     color: $very-light-purple;
     opacity: 0;
     transition: opacity 300ms ease 300ms;
+    pointer-events: none;
   }
 
   &.submitted {
@@ -31,7 +32,7 @@
 .container {
   width: 100%;
   box-sizing: border-box;
-  padding: $padding;
+  // padding: $padding;
   display: flex;
   flex-direction: column;
   transition: all ease 500ms;
@@ -41,7 +42,7 @@
     
   // }
 
-  > input, textarea {
+  input, textarea {
     margin: $padding 0;
     display: block;
     padding: $padding;
@@ -49,6 +50,11 @@
     color: $white;
     border: 1px solid $very-light-purple;
     font-size: 1.15em;
+    border-radius: 3px;
+    &[data-error] {
+      border-color: $error;
+      color: $error;
+    }
   }
 
   > textarea {

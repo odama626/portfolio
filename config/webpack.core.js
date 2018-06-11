@@ -7,7 +7,9 @@ module.exports = {
   stats: { children: false},
   resolve: {
     alias: {
-      'utils': path.join(__dirname, '../assets/utils')
+      'utils': path.join(__dirname, '../assets/utils'),
+      '@core': path.join(__dirname, '../assets/components/@core'),
+      'components': path.join(__dirname, '../assets/components'),
     },
     extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js'],
   },

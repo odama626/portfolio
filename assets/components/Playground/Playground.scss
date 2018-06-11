@@ -1,0 +1,6 @@
+.textArea {
+  border-color: grey;
+  &[data-error] {
+    border-color: red;
+  }
+}

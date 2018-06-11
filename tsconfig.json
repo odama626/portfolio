@@ -9,7 +9,9 @@
     "baseUrl": "./",
     "lib": ["es6", "dom"],
     "paths": {
-      "utils": ["assets/utils"]
+      "utils": ["assets/utils"],
+      "@core*": ["assets/components/@core*"],
+      "components*": ["assets/components*"]
     }
   },
   "exclude": [

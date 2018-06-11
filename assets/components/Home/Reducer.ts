@@ -18,13 +18,13 @@ export function fetchNewQuote() {
   }
 }
 
-export function submitContactForm(name: string, email: string, comment: string) {
+export function submitContactForm(data) {
   const t = SUBMIT_CONTACT_FORM;
   return {
     type: [t.PENDING, t.SUCCESS, t.ERROR],
     url: '/contact',
     method: 'post',
-    data: { name, email, comment }
+    data
   }
 }
 
