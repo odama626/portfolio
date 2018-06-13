@@ -5,6 +5,7 @@ import Container from 'components/Container/Container';
 import Controller from '@core/Form/Controller';
 import Wrapper from '@core/Form/Wrapper';
 import * as style from './Playground.scss';
+import Button from '@core/Button';
 
 const controller = new Controller();
 
@@ -20,7 +21,8 @@ export default () => (
         <textarea className={style.textArea} />
       </Wrapper>
     </Form>
-    <button onClick={() => {
+    <Button 
+    onClick={() => {
       if (controller.validate()) {
         console.log(controller.getValues());
         alert(`success!\n${JSON.stringify(controller.getValues(), null, 2)}`)
@@ -28,6 +30,8 @@ export default () => (
         console.log('invalid');
       }
     }}
-    >Validate</button>
+    >Validate</Button>
+    <Button type='contained'>Contained</Button>
+    <Button type='outlined'>Outlined</Button>
   </div>
 )

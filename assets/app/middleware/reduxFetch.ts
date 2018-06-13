@@ -13,10 +13,12 @@ export default store => next => action => {
     method = 'get',
     contentType = 'application/json',
     query = {},
-    data = {}
+    data = {},
+    options = {}
   } = action;
 
   let req = {
+    ...options,
     headers: { 'Content-Type': contentType },
     method
   };

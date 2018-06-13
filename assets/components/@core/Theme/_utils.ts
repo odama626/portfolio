@@ -47,3 +47,7 @@
 //     }
 //   }, {});
 // }
+
+function genStyles(style, classes: { [x: string]: any }) {
+  return Object.keys(classes).reduce((className, key) => `${className} ${classes[key] ? style[key] : ''}`, '');
+}

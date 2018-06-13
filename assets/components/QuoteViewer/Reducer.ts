@@ -4,15 +4,16 @@ export const FETCH = {
   ERROR: 'QUOTEVIEWER_FETCH_ERROR',
 };
 
+
 export function fetch() {
   const t = FETCH;
   return {
     type: [t.PENDING, t.SUCCESS, t.ERROR],
-    url: 'http://quotes.rest/qod.json',
-    contentType: 'application/x-www-form-urlencoded; charset=UTF-8'
+    // url: 'http://quotes.rest/qod.json',
+    // contentType: 'application/x-www-form-urlencoded; charset=UTF-8'
+    url: 'http://adamsparks.me:1337/quote/random'
   }
 }
-
 
 const initialState = {
   data: undefined

@@ -1,0 +1,47 @@
+$core-primary: #6200EE !default;
+$core-primary-var: #3700B3 !default;
+
+$core-secondary: #03DAC6 !default;
+$core-secondary-var: #018786 !default;
+
+$core-background: #FFFFFF !default;
+$core-surface: #FFFFFF !default;
+
+$core-error: #C51162 !default;
+
+$core-on-primary: #FFFFFF !default;
+$core-on-secondary: #000000 !default;
+
+$core-on-background: #000000 !default;
+$core-on-surface: #000000 !default;
+$core-on-error: #FFFFFF !default;
+
+$core-hover-opacity: 0.04;
+$core-focus-opacity: 0.12;
+// $core-selected-opacity: 0.08;
+// $core-activated-overlay: 0.12;
+$core-pressed-overlay: 0.16;
+// $core-dragged-overlay: 0.08;
+
+@mixin overlay($color, $overlay: false) {
+  $multiplier: if($overlay, 2, 1);
+  & {
+    transition: background 450ms;
+    &:hover {
+      background: if($overlay, transparentize($color, $core-hover-opacity * $multiplier), rgba($color, $core-hover-opacity * $multiplier))
+        radial-gradient(circle, transparent 1%, if($overlay, transparentize($color, $core-focus-opacity * $multiplier), rgba($color, $core-focus-opacity * $multiplier)) 1%) center/15000%;
+    }
+    &:focus {
+      background-color: if($overlay, transparentize($color, $core-focus-opacity * $multiplier), rgba($color, $core-focus-opacity * $multiplier));
+    }
+    &:active {
+      background-color: if($overlay, transparentize($color, $core-pressed-overlay * $multiplier), rgba($color, $core-pressed-overlay * $multiplier));
+      background-size: 100%;
+      transition: background 0s;
+    }
+  }
+}
+
+@mixin hover {
+  box-shadow: 0 3px 3px rgba(0,0,0,0.16), 0 3px 3px rgba(0,0,0,0.23);
+}

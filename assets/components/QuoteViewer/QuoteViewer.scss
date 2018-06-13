@@ -61,3 +61,11 @@ $quotes_white: #e9e9e9;
     }
   }
 }
+
+.icon {
+  @include Clickable;
+  transition: text-shadow 250ms ease;
+  &:hover {
+    text-shadow: 0 2px 1px rgba(0, 0, 0, 0.16), 0 2px 4px rgba(0, 0, 0, 0.23);
+  }
+}
