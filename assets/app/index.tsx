@@ -6,10 +6,10 @@ import Router from './Router';
 import Footer from 'components/Footer/Footer';
 import { Switch, Route } from 'react-router-dom';
 
-// import { loadServiceWorker } from './webworkers';
+import { loadServiceWorker } from './webworkers';
 // import ModalWrapper from './Modals/ModalWrapper';
 
-// loadServiceWorker();
+loadServiceWorker();
 
 import 'es6-promise/auto';
 
