@@ -14,7 +14,8 @@ export default store => next => action => {
     contentType = 'application/json',
     query = {},
     data = {},
-    options = {}
+    options = {},
+    local = false
   } = action;
 
   let req = {
@@ -29,7 +30,7 @@ export default store => next => action => {
     req['body'] = JSON.stringify(data);
   }
 
-  if (url.indexOf('://') < 0) {
+  if (url.indexOf('://') < 0 && !local) {
     url = ENV.API_ROOT + url;
     if (token) {
       req.headers['Authorization'] = token;

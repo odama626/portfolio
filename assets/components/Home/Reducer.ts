@@ -14,7 +14,8 @@ export function fetchNewQuote() {
   const t = FETCH_NEXT_QUOTE;
   return {
     type: [t.PENDING, t.SUCCESS, t.ERROR],
-    url: '/quote'
+    url: '/api/quote',
+    local: true
   }
 }
 
@@ -22,9 +23,10 @@ export function submitContactForm(data) {
   const t = SUBMIT_CONTACT_FORM;
   return {
     type: [t.PENDING, t.SUCCESS, t.ERROR],
-    url: '/contact',
+    url: '/api/contact',
     method: 'post',
-    data
+    data,
+    local: true
   }
 }
 
