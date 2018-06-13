@@ -1,9 +1,9 @@
 const CACHE_NAME = 'omarzion_portfolio_v1.2.0';
 
 const urlsToCache = [
-  '/',
-  '/res/main.js',
-  '/res/main.css',
+  // '/',
+  // '/res/main.js',
+  // '/res/main.css',
 
   // faces
   '/res/face-logo.svg',
@@ -44,8 +44,14 @@ self.addEventListener('install', (event: any) => {
   // console.log('Service worker installing');
 })
 
-self.addEventListener('activate', event => {
-  // console.log('Service worker activating.');
+self.addEventListener('activate', (event: any) => {
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      cacheNames
+        .filter(cacheName => cacheName !== CACHE_NAME)
+        .map(cacheName => caches.delete(cacheName))
+    })
+  );
 })
 
 self.addEventListener('fetch', (event: any) => {
